@@ -7,21 +7,20 @@
 #include <stdlib.h>
 
 /**
- * struct func_type - type structure
- * @t: argument pointer
+ * struct print - type structure
+ * @parameter: argument pointer
  * @f: pointer function to argument
  */
 
-typedef struct func_type
+typedef struct print
 {
-	char *t;
+	char *parameter;
 	int(*f)(va_list ap);
 }
-funct_t;
+print_type;
 
 /* different prototypes */
 
-int (*get_functions(const char *format))(va_list);
 int _printf(const char *format, ...);
 int _putchar(char c);
 int print_char(va_list ap);

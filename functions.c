@@ -54,8 +54,8 @@ int print_string(va_list ap)
  * Return: character "%"
  */
 
-int print_pct(va_list ap)
+int print_pct(va_list ap __attribute__((unused)))
 {
-	(void)ap;
-	return (write(1, "%", 1));
+	_putchar('%');
+	return (1);
 }

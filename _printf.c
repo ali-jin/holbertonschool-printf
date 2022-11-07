@@ -1,26 +1,29 @@
 #include "main.h"
-#include <stdio.h>
-#include <stdarg.h>
 
 /**
- * _printf - Entry point
- * @format: char pointer
+ * _printf - function printf
+ * @format: character string
  *
- * Return: 0
+ * Return: number of characters printed
  */
+
 int _printf(const char *format, ...)
 {
-	va_list string;
-	const char *str;
+	int i;
 
-	va_start(string, format);
-	str = &format[0];
-	while (*str != '\0')
+	print_type argument[] = {
+		{"c", print_char},
+		{"s", print_string},
+		{"%", print_pct},
+		{NULL, NULL}
+	};
+
+	for (i = 0; argument[i].parameter; i++)
 	{
-		_putchar(*str);
-		str++;
+		if (*format == *(argument[i].parameter))
+		{
+			return (argument[i].parameter);
+		}
 	}
-	va_end(string);
-	return (0);
+	return (NULL);
 }
-
