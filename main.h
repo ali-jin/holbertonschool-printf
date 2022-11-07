@@ -15,17 +15,17 @@
 typedef struct func_type
 {
 	char *t;
-	int(*f)(va_list);
+	int(*f)(va_list ap);
 }
 funct_t;
 
 /* different prototypes */
 
-int (*get_function(const char *format))(va_list);
+int (*get_functions(const char *format))(va_list);
 int _printf(const char *format, ...);
 int _putchar(char c);
-int print_char(va_list);
-int print_string(va_list);
-int print_pct(va_list);
+int print_char(va_list ap);
+int print_string(va_list ap);
+int print_pct(va_list ap);
 
 #endif

@@ -6,7 +6,7 @@
  * Return: pointer to the function
  */
 
-int (*get_func(const char *format))(va_list)
+int (*get_functions(const char *format))(va_list)
 {
 	int i;
 
