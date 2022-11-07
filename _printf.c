@@ -18,12 +18,13 @@ int _printf(const char *format, ...)
 		{NULL, NULL}
 	};
 
-	for (i = 0; argument[i].parameter; i++)
-	{
-		if (*format == *(argument[i].parameter))
-		{
-			return (argument[i].f);
-		}
-	}
-	return (NULL);
+	va_list ap;
+	int i = 0;
+
+	va_start(ap, format);
+	i = get_function(format, argument, ap);
+
+	va_end(ap);
+
+	return (i);
 }
