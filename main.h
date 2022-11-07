@@ -8,5 +8,11 @@
 
 int _printf(const char *format, ...);
 int _putchar(char c);
+ 
+typedef struct func_type
+{
+	char *t;
+	int (*f)(va_list);
+}funct_t;
 
 #endif
