@@ -22,7 +22,7 @@ int _printf(const char *format, ...)
 	{
 		if (*format == *(argument[i].parameter))
 		{
-			return (argument[i].parameter);
+			return (argument[i].f);
 		}
 	}
 	return (NULL);
