@@ -6,13 +6,23 @@
 #include <unistd.h>
 #include <stdlib.h>
 
-int _printf(const char *format, ...);
-int _putchar(char c);
- 
+/**
+ * struct func_type - type structure
+ * @t: argument pointer
+ * @f: pointer function to argument
+ */
+
 typedef struct func_type
 {
 	char *t;
-	int (*f)(va_list);
-}funct_t;
+	int(*f)(va_list);
+}
+funct_t;
+
+/* different prototypes */
+
+int (*get_function(const char *format))(va_list);
+int _printf(const char *format, ...);
+int _putchar(char c);
 
 #endif
