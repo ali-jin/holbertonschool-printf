@@ -12,7 +12,7 @@ int (*get_func(const char *format))(va_list)
 
 	funct_t p[] = {
 		{"c", print_char},
-		{"s", print_str},
+		{"s", print_string},
 		{"%", print_pct},
 		{NULL, NULL}
 	};
