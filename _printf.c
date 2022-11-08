@@ -9,7 +9,9 @@
 
 int _printf(const char *format, ...)
 {
-	int i;
+	int i = 0;
+	char *str = format[0];
+	va_list ap;
 
 	print_type argument[] = {
 		{"c", print_char},
@@ -18,13 +20,20 @@ int _printf(const char *format, ...)
 		{NULL, NULL}
 	};
 
-	va_list ap;
-	int i = 0;
-
 	va_start(ap, format);
-	i = get_function(format, argument, ap);
+	
+	while (*str != '\0')
+	{
+		if (*str == '%')
+		{
+			get_function(format, argument, ap);
+			str++;
+		}
+		_putchar(*str);
+		str++;
+	}
 
 	va_end(ap);
 
-	return (i);
+	return (0);
 }

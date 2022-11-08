@@ -9,3 +9,14 @@
  */
 
 int get_function(const char *format, print_type argument[], va_list ap)
+{
+	int i = 0;
+
+	while (argument[i].parameter == NULL)
+	{
+		if (*(argument[i].parameter) == *format)
+			argument[i].f(format);
+		i++;
+	}
+	return (0);
+}
