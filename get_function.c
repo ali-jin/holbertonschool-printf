@@ -20,3 +20,4 @@ int get_function(const char *format, print_type argument[], va_list ap)
 	}
 	return (0);
 }
+
