@@ -10,29 +10,23 @@
 int _printf(const char *format, ...)
 {
 	int i = 0;
-	char *str = format[0];
 	va_list ap;
 
-	print_type argument[] = {
-		{"c", print_char},
-		{"s", print_string},
-		{"%", print_pct},
-		{"i", print_int},
-		{"d", print_int},
-		{NULL, NULL}
-	};
-
 	va_start(ap, format);
-
-	while (*str != '\0')
+	
+	while (format[i] != '\0')
 	{
-		if (*str == '%')
+		if (format[i] == '%')
 		{
-			get_function(format, argument, ap);
-			str++;
+			get_function(format, i + 1)(ap);
+			i += 1;
+			i++;
 		}
-		_putchar(*str);
-		str++;
+		else
+		{
+			_putchar(format[i]);
+			i++;
+		}
 	}
 
 	va_end(ap);
