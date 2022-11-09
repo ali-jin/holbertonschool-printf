@@ -7,7 +7,8 @@
  * ap : pointer struct
  * return le nombre de character a imprimer
  */
-int (*get_function(const char *str, int n))(va_list)
+
+int (*get_function(const char *str))(va_list)
 {
 	int i = 0;
 	print_type argument[] = {
@@ -21,7 +22,7 @@ int (*get_function(const char *str, int n))(va_list)
 
 	while (argument[i].parameter != NULL)
 	{
-		if (argument[i].parameter[0] == str[n])
+		if (*argument[i].parameter == *str)
 			return (argument[i].f);
 		i++;
 	}
