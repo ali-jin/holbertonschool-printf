@@ -14,8 +14,8 @@ int (*get_function(const char *str, int n))(va_list)
 		{"c", print_char},
 		{"s", print_string},
 		{"%", print_pct},
-		{"i", print_int}
-		{"d", print_int}
+		{"i", print_int},
+		{"d", print_int},
 		{NULL, NULL}
 	};
 
