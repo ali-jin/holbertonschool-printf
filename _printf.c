@@ -17,11 +17,13 @@ int _printf(const char *format, ...)
 		{"c", print_char},
 		{"s", print_string},
 		{"%", print_pct},
+		{"i", print_int},
+		{"d", print_int},
 		{NULL, NULL}
 	};
 
 	va_start(ap, format);
-	
+
 	while (*str != '\0')
 	{
 		if (*str == '%')

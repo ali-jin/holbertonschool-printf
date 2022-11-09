@@ -15,7 +15,7 @@ int _putchar(char c)
 
 /**
  * print_char - print character
- * @args: argument
+ * @ap: argument
  *
  * Return: character
  */
@@ -28,7 +28,7 @@ int print_char(va_list ap)
 
 /**
  * print_string - prints string
- * @args: arguments
+ * @ap: arguments
  *
  * Return: string
  */
@@ -49,7 +49,7 @@ int print_string(va_list ap)
 
 /**
  * print_pct - print character "%"
- * @args: arguments
+ * @ap: arguments
  *
  * Return: character "%"
  */
@@ -58,4 +58,38 @@ int print_pct(va_list ap __attribute__((unused)))
 {
 	_putchar('%');
 	return (1);
+}
+
+/**
+ * print_int - function to print integers
+ * @ap: argument printed
+ *
+ * Return: return result
+ */
+
+int print_int(va_list ap)
+{
+	int i, divisor = 1, result = 0;
+	unsigned int number;
+
+	i = va_arg(ap, int);
+
+	if (i < 0)
+	{
+		result += _putchar('-');
+		number = i * -1;
+	}
+	else
+		number = i;
+
+	while (number / divisor > 9)
+		divisor *= 10;
+
+	while (divisor != 0)
+	{
+		result += _putchar(number / divisor + '0');
+		number %= divisor;
+		divisor /= 10;
+	}
+	return (result);
 }
