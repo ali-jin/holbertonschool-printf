@@ -7,17 +7,24 @@
  * ap : pointer struct
  * return le nombre de character a imprimer
  */
-
-int get_function(const char *format, print_type argument[], va_list ap)
+int (*get_function(const char *str, int n))(va_list)
 {
 	int i = 0;
+	print_type argument[] = {
+		{"c", print_char},
+		{"s", print_string},
+		{"%", print_pct},
+		{"i", print_int}
+		{"d", print_int}
+		{NULL, NULL}
+	};
 
-	while (argument[i].parameter == NULL)
+	while (argument[i].parameter != NULL)
 	{
-		if (*(argument[i].parameter) == *format)
-			argument[i].f(format);
+		if (argument[i].parameter[0] == str[n])
+			return (argument[i].f);
 		i++;
 	}
-	return (0);
+	return (NULL);
 }
 
