@@ -2,10 +2,8 @@
 
 /**
  * get_function - fonction
- * @format: chaine de caracteres
- * @argument : arguments specifiés "c" "s"...
- * ap : pointer struct
- * return le nombre de character a imprimer
+ * @str: string to print
+ * Return: null
  */
 
 int (*get_function(const char *str))(va_list)
