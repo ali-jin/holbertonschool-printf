@@ -17,6 +17,7 @@ int (*get_function(const char *str))(va_list)
 		{"%", print_pct},
 		{"i", print_int},
 		{"d", print_int},
+		{"b", convert_binary},
 		{NULL, NULL}
 	};
 
