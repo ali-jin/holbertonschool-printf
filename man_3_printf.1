@@ -1,0 +1,131 @@
+.TH _printf 1 "11 november 2022" "1.0" "_printf man page"
+.SH NAME
+_printf - formated output conversion
+.SH SYPNOSIS
+#include <stdio.h>
+int _printf(const char *format, ...);
+#include <stdarg.h>
+int _printf(const char *format, va_list);
+.SH DESCRIPTION
+The function _printf() produce output according to a format as described below.
+The function write output to stdout, the standard output stream. It write the output
+under the control of a string that specifies how subsequent arguments are converted for output.
+.B Format of the format string
+.PP
+The format string is a character string, beginning and ending in its initial shift state, if any.
+The format string is composed of zero or more directives: ordinary characters (not %), which
+are copied unchanged to the output stream; and convertion specifications, each of which results
+in fetching zero or more subsequent arguments. Each conversion specification is introduced by 
+the character %, and ends with a conversion specifier. In between there may be (in this order) 
+zero or more flags, an optional minimum field width, an optional precision and an optional length modifier.
+
+The overall syntax of a conversion specification is:
+	 %[$][flags][width][.precision][length modifier]conversion
+
+.B Field width
+.PP
+An optional decimal digit string (with nonzero first digit)
+specifying a minimum field width.  If the converted value has
+fewer characters than the field width, it will be padded with
+spaces on the left (or right, if the left-adjustment flag has
+been given).  Instead of a decimal digit string one may write "*"
+or "*m$" (for some decimal integer m) to specify that the field
+width is given in the next argument, or in the m-th argument,
+respectively, which must be of type int.  A negative field width
+is taken as a '-' flag followed by a positive field width.  In no
+case does a nonexistent or small field width cause truncation of
+a field; if the result of a conversion is wider than the field
+width, the field is expanded to contain the conversion result.
+
+.B Precision
+.PP
+An optional precision, in the form of a period ('.')  followed by
+an optional decimal digit string.  Instead of a decimal digit
+string one may write "*" or "*m$" (for some decimal integer m) to
+specify that the precision is given in the next argument, or in
+the m-th argument, respectively, which must be of type int.  If
+the precision is given as just '.', the precision is taken to be
+zero.  A negative precision is taken as if the precision were
+omitted.  This gives the minimum number of digits to appear for
+d, i, o, u, x, and X conversions, the number of digits to appear
+after the radix character for a, A, e, E, f, and F conversions,
+the maximum number of significant digits for g and G conversions,
+or the maximum number of characters to be printed from a string
+for s and S conversions.
+
+.B Conversion specifiers
+.TP
+.BR d, i
+The int argument is converted to signed decimal notation.
+The precision, if any, gives the minimum number of digits
+that must appear; if the converted value requires fewer
+digits, it is padded on the left with zeros.  The default
+precision is 1.  When 0 is printed with an explicit
+precision 0, the output is empty.
+
+.TP
+.BR c
+The int argument is converted to an unsigned char,
+and the resulting character is written.
+
+.TP
+.BR s
+The const char * argument is expected to be a pointer 
+to an array of character type (pointer to a string).
+Characters from the array are written up to (but not including)
+a terminating null byte ('\0'); if a precision is specified,
+no more than the number specified are written.  If a precision
+is given, no null byte need be present; if the precision is not
+specified, or is greater than the size of the array, the
+array must contain a terminating null byte.
+
+.TP
+.BR b
+the unsigned int argument is converted to binary
+
+.TP
+.BR o, u, x, X
+The unsigned int argument is converted to unsigned octal
+(o), unsigned decimal (u), or unsigned hexadecimal (x and
+X) notation.  The letters abcdef are used for x
+conversions; the letters ABCDEF are used for X
+conversions.  The precision, if any, gives the minimum
+number of digits that must appear; if the converted value
+requires fewer digits, it is padded on the left with
+zeros.  The default precision is 1.  When 0 is printed
+with an explicit precision 0, the output is empty.
+
+.SH RETURN VALUE
+Upon successful return, these functions return the number of
+characters printed (excluding the null byte used to end output to
+strings).
+If an output error is encountered, a negative value is returned.
+
+.SH EXAMPLES
+To print integer:
+.RS 
+.nf
+#include <stdio.h>
+#include <stdarg.h>
+_printf("Numbers of apples: %d", 10);
+.RE
+
+To print strings or character:
+.RS
+.nf
+#include <stdio.h>
+#include <stdarg.h>
+_printf("Name of the school: %s", "Holberton");
+_printf("First letter of Orange: %c", "O");
+.RE
+
+To convert in binary:
+.RS
+.nf
+#include <stdio.h>
+#include <stdarg.h>
+_printf("binary of 98: %b", 1100010);
+.RE
+
+.SH AUTHOR
+Written by Alina Jin and Mathieu Morel.
