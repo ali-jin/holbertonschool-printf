@@ -26,6 +26,6 @@ int print_char(va_list ap);
 int print_string(va_list ap);
 int print_pct(va_list ap);
 int print_int(va_list ap);
-int get_fonction(const char *str, int n)(va_list);
+int (*get_function(const char *format))(va_list);
 
 #endif
