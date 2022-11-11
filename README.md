@@ -27,7 +27,7 @@ int _printf(const char *format, ...)
 | [`get_function.c`](https://github.com/ali-jin/holbertonschool-printf/blob/main/get_function.c) | The get_function file is used to handle the array     containing all the format specifiers used.|
 | [`main.h`](https://github.com/ali-jin/holbertonschool-printf/blob/main/main.h) | The main.h contain all our the prototypes used as well as containing our struct and the standard libraries used. |
 | [`functions.c`](https://github.com/ali-jin/holbertonschool-printf/blob/main/functions.c) | It is in this file that we have placed all our functions (maximum 5 functions per file)|
-| [`man_3_printf`]() | Man page for _printf function |
+| [`man_3_printf.1`](https://github.com/ali-jin/holbertonschool-printf/blob/main/man_3_printf.1)| Man page for _printf function |
 
 ## Compilation
 Your code will be compiled this way:
