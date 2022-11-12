@@ -27,7 +27,6 @@ int print_string(va_list ap);
 int print_pct(va_list ap);
 int print_int(va_list ap);
 int convert_binary(va_list ap);
-void print_binary(unsigned int i);
 int (*get_function(const char *format))(va_list);
 
 #endif
