@@ -1,45 +1,34 @@
 #include "main.h"
 
+/**
+ * convert_binary - convert unsigned int in binary
+ * @ap: print
+ *
+ * Return: 0
+ */
 int convert_binary(va_list ap)
 {
-	unsigned int len, reste = 0, place = 1;
-	unsigned int bin = 0;
-	int num = va_arg(ap, unsigned int);
+	unsigned int n, max, i, sum;
+	unsigned int bin[32];
+	int len;
 
-	while (num)
+	n = va_arg(ap, unsigned int);
+	/* (2 ^ 31), biggest positive number that fits in 32 bits*/
+	max = 2147483648;
+	bin[0] = n / max;
+	for (i = 1; i < 32; i++)
 	{
-		reste = num % 2;
-		num = num / 2;
-		bin = bin + (reste * place);
-		place = place * 10;
-		len++;
+		max /= 2;
+		bin[i] = (n / max) % 2;
 	}
-	print_binary(bin);
-	return (0);
-}
-
-
-void print_binary(unsigned int i)
-{
-	if (i / 10 != 0)
+	for (i = 0, sum = 0, len = 0; i < 32; i++)
 	{
-		print_binary(i / 10);
-		if ( i > 0 )
+		sum += bin[i];
+		if (sum || i == 31)
 		{
-			_putchar(i % 10 + '0');
-		}
-		else
-		{
-			_putchar(-i % 10 + '0');
+			_putchar('0' + bin[i]);
+			len++;
 		}
 	}
-	else if((i / 10 == 0) && (i % 10 != 0) && (i > 0))
-	{
-		_putchar(i % 10 + '0');
-	}
-	else if((i / 10 == 0) && (i % 10 != 0) && (i <= 0))
-	{
-		_putchar('-');
-		_putchar(-i % 10 + '0');
-	}
+	return (len);
 }
