@@ -2,9 +2,9 @@
 .SH NAME
 _printf - formated output conversion
 .SH SYPNOSIS
-#include <stdio.h>
+#include "main.h"
 int _printf(const char *format, ...);
-#include <stdarg.h>
+#include "main.h"
 int _printf(const char *format, va_list);
 .SH DESCRIPTION
 The function _printf() produce output according to a format as described below.
@@ -105,16 +105,14 @@ If an output error is encountered, a negative value is returned.
 To print integer:
 .RS 
 .nf
-#include <stdio.h>
-#include <stdarg.h>
+#include "main.h"
 _printf("Numbers of apples: %d", 10);
 .RE
 
 To print strings or character:
 .RS
 .nf
-#include <stdio.h>
-#include <stdarg.h>
+#include "main.h"
 _printf("Name of the school: %s", "Holberton");
 _printf("First letter of Orange: %c", "O");
 .RE
@@ -122,8 +120,7 @@ _printf("First letter of Orange: %c", "O");
 To convert in binary:
 .RS
 .nf
-#include <stdio.h>
-#include <stdarg.h>
+#include "main.h"
 _printf("binary of 98: %b", 1100010);
 .RE
 

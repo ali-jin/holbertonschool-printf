@@ -1,5 +1,12 @@
 #include "main.h"
 
+/**
+ * convert_binary - convert binary
+ * @ap: print
+ *
+ * Return: 0
+ */
+
 int convert_binary(va_list ap)
 {
 	unsigned int len, reste = 0, place = 1;
@@ -17,14 +24,17 @@ int convert_binary(va_list ap)
 	print_binary(bin);
 	return (0);
 }
-
+/**
+ * print_binary - print binary number
+ * @i: unsigned int to print
+ */
 
 void print_binary(unsigned int i)
 {
 	if (i / 10 != 0)
 	{
 		print_binary(i / 10);
-		if ( i > 0 )
+		if (i > 0)
 		{
 			_putchar(i % 10 + '0');
 		}
@@ -33,11 +43,11 @@ void print_binary(unsigned int i)
 			_putchar(-i % 10 + '0');
 		}
 	}
-	else if((i / 10 == 0) && (i % 10 != 0) && (i > 0))
+	else if ((i / 10 == 0) && (i % 10 != 0) && (i > 0))
 	{
 		_putchar(i % 10 + '0');
 	}
-	else if((i / 10 == 0) && (i % 10 != 0) && (i <= 0))
+	else if ((i / 10 == 0) && (i % 10 != 0) && (i <= 0))
 	{
 		_putchar('-');
 		_putchar(-i % 10 + '0');

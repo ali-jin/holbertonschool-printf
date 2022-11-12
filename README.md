@@ -27,7 +27,7 @@ int _printf(const char *format, ...)
 | [`get_function.c`](https://github.com/ali-jin/holbertonschool-printf/blob/main/get_function.c) | The get_function file is used to handle the array     containing all the format specifiers used.|
 | [`main.h`](https://github.com/ali-jin/holbertonschool-printf/blob/main/main.h) | The main.h contain all our the prototypes used as well as containing our struct and the standard libraries used. |
 | [`functions.c`](https://github.com/ali-jin/holbertonschool-printf/blob/main/functions.c) | It is in this file that we have placed all our functions (maximum 5 functions per file)|
-| [`man_3_printf`]() | Man page for _printf function |
+| [`man_3_printf.1`](https://github.com/ali-jin/holbertonschool-printf/blob/main/man_3_printf.1)| Man page for _printf function |
 
 ## Compilation
 Your code will be compiled this way:
@@ -132,6 +132,12 @@ At the exit, the program must display this.
     alex@ubuntu:~/c/printf$
 ```
 ------------------------
+
+## Flowchart
+
+![Flowchart](https://github.com/ali-jin/holbertonschool-printf/blob/main/Diagramme%20sans%20nom.drawio.svg)
+
+-------------------------
 ## Task To Realize The Project 
 
 ### [0. I'm Not Going Anywhere. You Can Print That Wherever You Want To. I'm Here And I'm a Spur For Life](https://github.com/ali-jin/holbertonschool-printf)
@@ -162,11 +168,11 @@ Handle the following conversion specifiers:
 - You don’t have to handle the length modifiers
 
 ----------------------------
-### [2. Just because it's in print doesn't mean it's the gospel]()
+### [2. Just Because It's In Print Doesn't Mean It's The Gospel](https://github.com/ali-jin/holbertonschool-printf/blob/main/man_3_printf.1)
 - Create a man page for your function.
 
 ----------------------------
-### [3. With a face like mine, I do better in print](url)
+### [3. With a Face Like Mine, I Do Better In Print](url)
 Handle the following custom conversion specifiers:
 
 - `b` : the unsigned int argument is converted to binary
